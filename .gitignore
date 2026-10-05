@@ -1,0 +1,38 @@
+*# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables / secrets
+.env
+.env.*
+*.key
+*.pem
+credentials.json
+service-account*.json
+application_default_credentials.json
+
+# Generated RAG data
+processed_data/*.jsonl
+
+# Local datasets
+DATA/
+
+# Qdrant local storage
+qdrant_storage/
+storage/
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
