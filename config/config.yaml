@@ -1,0 +1,29 @@
+
+google_cloud:
+  project_id: ai-security-bootcamp
+  location: us-central1
+
+models:
+  embedding: text-embedding-005
+  llm: gemini-2.5-flash
+
+qdrant:
+  host: localhost
+  port: 6333
+  collection_name: enterprise_rag
+
+retrieval:
+  top_k: 10
+  final_top_k: 5
+
+reranker:
+  model: ms-marco-MiniLM-L-12-v2
+
+agent:
+  max_retries: 2
+
+redis_cache:
+  enabled: true
+  namespace: kubernetes-v1
+  similarity_threshold: 0.96
+  ttl_seconds: 3600

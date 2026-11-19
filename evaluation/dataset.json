@@ -1,0 +1,69 @@
+
+[
+  {
+    "question": "What is HPA?",
+    "reference_answer": "Horizontal Pod Autoscaling automatically adjusts the number of Kubernetes pods based on observed metrics.",
+    "source_document": "pods_autoscale.html",
+    "verification_status": "pending_sme"
+  },
+  {
+    "question": "What is the purpose of Redis in fine-grained parallel processing using a work queue?",
+    "reference_answer": "Redis acts as a storage service that holds the work queue containing tasks to be processed by worker pods.",
+    "source_document": "parallel_work_queue.txt",
+    "verification_status": "pending_sme"
+  },
+  {
+    "question": "What are the main steps involved in fine-grained parallel processing using a work queue?",
+    "reference_answer": "The main steps are to start the storage service such as Redis, create and populate the queue with messages, and start a Kubernetes Job to process the tasks.",
+    "source_document": "parallel_work_queue.txt",
+    "verification_status": "pending_sme"
+  },
+  {
+    "question": "How does each worker pod process tasks from the work queue?",
+    "reference_answer": "Each worker pod retrieves one unit of work from the queue, processes it, marks the task as complete, and repeats until the queue is empty.",
+    "source_document": "parallel_work_queue.txt",
+    "verification_status": "pending_sme"
+  },
+  {
+    "question": "How is parallelism configured in the example Kubernetes Job?",
+    "reference_answer": "The example Kubernetes Job configures parallelism to 2, allowing two pods to process tasks concurrently.",
+    "source_document": "parallel_work_queue.txt",
+    "verification_status": "pending_sme"
+  },
+  {
+    "question": "What alternative is suggested for continuous background processing?",
+    "reference_answer": "A ReplicaSet is suggested as an alternative for continuous background processing, and the document also mentions the Resque library.",
+    "source_document": "parallel_work_queue.txt",
+    "verification_status": "pending_sme"
+  },
+  {
+    "question": "Why might a Kubernetes CronJob fail to create Jobs?",
+    "reference_answer": "A CronJob may fail to create Jobs because of an invalid cron schedule expression or timezone configuration issues. The schedule expression should be checked and corrected.",
+    "source_document": "cronjobs.docx",
+    "verification_status": "pending_sme"
+  },
+  {
+    "question": "How can I troubleshoot a Kubernetes Job pod that is OOMKilled or experiencing CPU throttling?",
+    "reference_answer": "Use kubectl top pod to inspect resource usage and kubectl describe pod and kubectl describe quota to investigate pod and quota details. Adjust resource limits or consider Vertical Pod Autoscaler where appropriate.",
+    "source_document": "cronjobs.docx",
+    "verification_status": "pending_sme"
+  },
+  {
+    "question": "What is the purpose of activeDeadlineSeconds in a Kubernetes Job?",
+    "reference_answer": "activeDeadlineSeconds sets the maximum time a Kubernetes Job is allowed to run before Kubernetes terminates it. The document gives 3600 seconds as an example.",
+    "source_document": "cronjobs.docx",
+    "verification_status": "pending_sme"
+  },
+  {
+    "question": "How can a Kubernetes Job be designed to be idempotent?",
+    "reference_answer": "The document describes hashing the input with MD5 and comparing it with existing metadata. If the hash matches, processing can be skipped; otherwise, the result and metadata are saved atomically after processing.",
+    "source_document": "cronjobs.docx",
+    "verification_status": "pending_sme"
+  },
+  {
+    "question": "How can KEDA support event-driven Kubernetes Jobs?",
+    "reference_answer": "KEDA can use a ScaledJob with an event-source trigger, such as AWS SQS, to scale Job execution according to queue activity. The document gives a queueLength value of 5 as an example.",
+    "source_document": "cronjobs.docx",
+    "verification_status": "pending_sme"
+  }
+]
